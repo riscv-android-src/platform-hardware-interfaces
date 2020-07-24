@@ -28,7 +28,7 @@ LOCAL_PROPRIETARY_MODULE := true
 LOCAL_SRC_FILES := \
     service.cpp
 
-LOCAL_CFLAGS := -Wall -Werror
+#LOCAL_CFLAGS := -Wall -Werror
 
 LOCAL_SHARED_LIBRARIES := \
     libcutils \
@@ -54,12 +54,13 @@ LOCAL_SHARED_LIBRARIES := \
     android.hardware.soundtrigger@2.1 \
     android.hardware.soundtrigger@2.2
 
-# Can not switch to Android.bp until AUDIOSERVER_MULTILIB
-# is deprecated as build config variable are not supported
-ifeq ($(strip $(AUDIOSERVER_MULTILIB)),)
-LOCAL_MULTILIB := 32
-else
-LOCAL_MULTILIB := $(AUDIOSERVER_MULTILIB)
-endif
+##TODO: rv fix multilib
+## Can not switch to Android.bp until AUDIOSERVER_MULTILIB
+## is deprecated as build config variable are not supported
+#ifeq ($(strip $(AUDIOSERVER_MULTILIB)),)
+#LOCAL_MULTILIB := 32
+#else
+#LOCAL_MULTILIB := $(AUDIOSERVER_MULTILIB)
+#endif
 
 include $(BUILD_EXECUTABLE)
