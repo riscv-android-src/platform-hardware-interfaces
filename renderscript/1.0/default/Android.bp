@@ -17,7 +17,7 @@ cc_library_shared {
         "Device.cpp",
     ],
     include_dirs: [
-        "frameworks/rs",
+        //"frameworks/rs",
     ],
     shared_libs: [
         "libdl",
